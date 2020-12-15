@@ -1,0 +1,268 @@
+#!/usr/bin/env python
+# coding: utf-8
+
+# In[5]:
+
+
+def fonksiyon(*a):
+    for deger in a:
+        print(deger)
+
+
+# In[6]:
+
+
+fonksiyon(12,13,14,15,16)
+
+
+# In[7]:
+
+
+def fonksiyonum(**renkler):
+    if "kirmizi" in renkler:
+        print("Red")
+    elif "mavi" in renkler:
+        print("Blue")
+    else:
+        print("İlgili renk bulunamadı")
+
+
+# In[9]:
+
+
+fonksiyonum(kirmizi="red",siyah="black")
+
+
+# In[10]:
+
+
+# Lambda & Map & Filter
+
+
+# In[11]:
+
+
+def kare(sayı):
+    sayı2=sayı**2
+    return sayı2
+
+
+# In[12]:
+
+
+kare(15)
+
+
+# In[13]:
+
+
+kare1=lambda sayı:sayı**2
+
+
+# In[14]:
+
+
+kare1(15)
+
+
+# In[15]:
+
+
+#map
+
+
+# In[16]:
+
+
+sayılar=[1,2,3,4,5,6,7,8]
+
+
+# In[17]:
+
+
+map(kare1,sayılar)
+
+
+# In[18]:
+
+
+list(map(kare1,sayılar))
+
+
+# In[19]:
+
+
+#filter
+
+
+# In[20]:
+
+
+#filter(fonksiyon,dizi)
+
+
+# In[23]:
+
+
+def çift(sayı):
+    if sayı%2==0:
+        return True
+    else:
+        return False
+    
+
+
+# In[24]:
+
+
+çift(12)
+
+
+# In[27]:
+
+
+sayı=12
+lambda sayı:sayı%2==0
+
+
+# In[28]:
+
+
+print(sayılar)
+
+
+# In[37]:
+
+
+yeni=list(filter(lambda sayı:sayı%2==0, sayılar))
+
+
+# In[ ]:
+
+
+
+
+
+# In[38]:
+
+
+liste=["İstanbul", "Gaziantep", "Sakarya","Çanakkale","Hatay","Adana","Bursa"]
+
+
+# In[39]:
+
+
+list(filter(lambda il:len(il)>5,liste))
+
+
+# In[40]:
+
+
+#içiçe geçmiş ifadeler & Kapsamlar
+
+
+# In[41]:
+
+
+x=25
+
+
+# In[42]:
+
+
+def printer():
+    x=500
+    return x
+
+
+# In[46]:
+
+
+print(x)
+
+
+# In[44]:
+
+
+print(printer())
+
+
+# In[45]:
+
+
+printer()
+
+
+# In[48]:
+
+
+#Kapsamlar
+
+
+# In[49]:
+
+
+# Yerel kapsam; bir fonksiyon içinde (lambda, def) tanımlanan nesnelerdir.
+#Bu nesneler sadece fonkiyon içinde kullanılır, fonksiyonun işlevi bittiğinde
+#çağrılmaz.
+
+# Genel kapsam: Yazılan programın ana gövdesinden erişilebilren, bir modül
+#dosyasının en üst seviyesinde olan tanımlamalardır.
+
+# Gömülü kapsam: Python ile önceden tanımlanmış min, max gibi gömülü fonksiyonlardır
+
+
+# In[14]:
+
+
+isim="Ali"
+
+
+# In[15]:
+
+
+def selamlama():
+    #isim ="Can"
+    def karşılama():
+        print("Merhaba "+isim)
+    karşılama()
+
+
+# In[16]:
+
+
+selamlama()
+
+
+# In[17]:
+
+
+x=1
+
+
+# In[21]:
+
+
+def fonksiyon(x):
+    print(f'Xin değeri {x}')
+    x=1000
+    print(f'Xin değeri {x}')
+
+
+# In[22]:
+
+
+fonksiyon(x)
+
+
+# In[23]:
+
+
+print(x)
+
+
+# In[ ]:
+
+
+
+
